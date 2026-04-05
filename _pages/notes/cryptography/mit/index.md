@@ -1,7 +1,7 @@
 ---
 layout: terminal
 title: MIT
-permalink: /notes/cryptography/mit
+permalink: /notes/cryptography/mit/
 ---
 
 ### MIT
