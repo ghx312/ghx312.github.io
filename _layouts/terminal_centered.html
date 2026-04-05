@@ -1,0 +1,130 @@
+<!--When editing this file, please make the same changes to terminal-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap');
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{background:#121218;}
+    .t-wrap{background:#121218;color:#a8a8b8;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;min-height:100vh;padding:40px 48px;}
+    .t-topbar{display:flex;align-items:center;gap:6px;margin-bottom:36px;padding-bottom:16px;border-bottom:1px solid #1c1c26;}
+    .t-dot{width:10px;height:10px;border-radius:50%;}
+  /*.t-dot.r{background:#3a1a1a;} #MacOS buttons
+    .t-dot.y{background:#2e2a14;}
+    .t-dot.g{background:#1a2e1a;} */
+    .t-title{margin-left:auto;font-size:11px;color:#333340;letter-spacing:1px;}
+    .t-nav{display:flex;gap:0;margin-bottom:36px;}
+    .t-nav a{color:#444458;text-decoration:none;font-size:12px;letter-spacing:1px;margin-right:24px;}
+    .t-nav a:hover{color:#7eb8d4;}
+    .t-prompt{display:flex;align-items:baseline;gap:0;margin-bottom:28px;}
+    .t-user{color:#5a8a5a;}
+    .t-path{color:#5a7aaa;}
+
+    .t-body{max-width:1080px;margin: 0 auto}
+    .t-body h1,.t-body h2,.t-body h3{color:#a8a8b8;margin-bottom:12px;margin-top:24px;}
+    .t-body p{color:#8888a0;margin-bottom:12px;line-height:1.9;}
+    .t-body a{color:#7eb8d4;text-decoration:none;}
+    .t-body a:hover{color:#a8d4e8;}
+    .t-body code{background:#1a1a26;padding:2px 6px;border-radius:3px;color:#9090a8;}
+    .t-body pre{background:#1a1a26;padding:16px;border-radius:4px;overflow-x:auto;margin-bottom:12px;}
+    .t-body ul,ol{color:#8888a0;padding-left:20px;margin-bottom:12px;}
+
+    .t-footer{margin-top:48px;padding-top:14px;border-top:1px solid #161622;display:flex;justify-content:space-between;align-items:center;}
+    .t-footer-left{font-size:11px;color:#383848;}
+    .t-blink{display:inline-block;width:7px;height:13px;background:#7eb8d4;opacity:0.7;animation:blink 1.2s step-end infinite;vertical-align:middle;}
+    /*Table of Contents*/
+    .t-toc {position: sticky;top: 40px;font-size: 11px;line-height: 2;}
+    .t-toc-label {font-size: 10px;letter-spacing: 2px;text-transform: uppercase;color: #333346;margin-bottom: 8px;}
+    .t-toc a {display: block;color: #444458;text-decoration: none;transition: color 0.15s;}
+    .t-toc a:hover { color: #7eb8d4; }
+    .t-toc .toc-h3 { padding-left: 12px; }
+    /*Header Button + Design and Table of Contents end position*/
+    .t-scroll-area {height: calc(100vh - 343px); /* adjust 200px to account for your topbar, 343px is the exact amount that completely remove movement of webpage */overflow-y: auto;}
+    .t-body h1, .t-body h2, .t-body h3, .t-body h4, .t-body h5, .t-body h6 {scroll-margin-top: 20vh;}/* pushes heading to middle-ish instead of top */
+    /*Scroll Bar Terminal Style*/
+    .t-scroll-area::-webkit-scrollbar {width: 6px;}
+    .t-scroll-area::-webkit-scrollbar-track {background: #121218;}
+    .t-scroll-area::-webkit-scrollbar-thumb {background: #1c1c26;border-radius: 3px;}
+    .t-scroll-area::-webkit-scrollbar-thumb:hover {background: #7eb8d4;}
+    @keyframes blink{0%,100%{opacity:0.7}50%{opacity:0}}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+</head>
+<!--Table of Contents-->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const toc = document.getElementById('toc');
+    const headings = document.querySelectorAll('.t-body h1, .t-body h2, .t-body h3, .t-body h4, .t-body h5, .t-body h6');
+    headings.forEach(h => {
+      if (!h.id) h.id = h.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+      const a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent;
+      const level = parseInt(h.tagName[1]);
+      a.style.paddingLeft = ((level - 1) * 10) + 'px';
+      toc.appendChild(a);
+    });
+  });
+</script>
+<!--End of Table of Contents-->
+<body>
+<div class="t-wrap">
+
+  <div class="t-topbar">
+    <div class="t-dot r"></div>
+    <div class="t-dot y"></div>
+    <div class="t-dot g"></div>
+    <span class="t-title">ghx312 — bash</span>
+  </div>
+
+  <div class="t-prompt">
+    <span class="t-user">ghx312</span>
+    <span style="color:#333340;">@</span>
+    <span class="t-path">~/site</span>
+    <span style="color:#a8a8b8;">&nbsp;$&nbsp;cat&nbsp;</span>
+    {% assign parts = page.url | remove_first: '/' | split: '/' %}
+    {% assign accumulated = "" %}
+    {% for part in parts %}
+      {% if part != "" %}
+        {% if accumulated == "" %}
+          {% assign accumulated = part %}
+        {% else %}
+          {% assign accumulated = accumulated | append: '/' | append: part %}
+        {% endif %}
+        <a href="/{{ accumulated }}/" style="color:#7eb8d4;text-decoration:none;">{{ part }}</a>
+        {% unless forloop.last %}<span style="color:#a8a8b8;">/</span>{% endunless %}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <div class="t-nav">
+    <a href="/">Home</a>
+    <a href="/Notes">Notes</a>
+    <a href="/writeups">Writeups</a>
+    <a href="/about">About</a>
+  </div>
+
+  <div class="t-scroll-area">
+    <div style="display: grid; grid-template-columns: 200px 1fr; gap: 40px; align-items: start;">
+      <div class="t-toc" id="toc">
+        <div class="t-toc-label">CONTENTS</div>
+      </div>
+      <div class="t-body">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+
+  <div class="t-footer">
+    <span class="t-footer-left">/* "When there is the chance to make a choice, make one that you know you won't regret..." */</span>
+    <span><div class="t-blink"></div></span>
+  </div>
+
+</div>
+</body>
+</html>

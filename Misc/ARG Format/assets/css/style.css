@@ -1,0 +1,355 @@
+/* ============================================================
+   REDACTED — Personal Site Skin
+   ============================================================
+   HOW TO CUSTOMISE:
+   - Change --accent to any colour you like (currently dark red)
+   - Change --bg to change the background
+   - Change --text to change the main text colour
+   - Font is JetBrains Mono — swap it in the <head> of default.html
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap');
+
+/* ── Variables ── */
+:root {
+  --bg:         #0c0c10;
+  --bg-deep:    #080810;
+  --surface:    #111120;
+  --border:     #1a1a28;
+  --border-dim: #111120;
+  --text:       #b0b0c0;
+  --text-mid:   #6a6a88;
+  --text-dim:   #2e2e42;
+  --text-ghost: #1a1a28;
+  --accent:     #8b0000;   /* ← change this to change the stamp/label colour */
+  --accent-dim: #3a1a1a;
+  --green:      #2a5a2a;
+  --amber:      #5a4a1a;
+  --font:       'JetBrains Mono', monospace;
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 13px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+a { color: var(--text-mid); text-decoration: none; transition: color 0.15s; }
+a:hover { color: var(--text); }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: var(--text-dim); }
+
+/* ============================================================
+   TOP BAR — the "TOP SECRET / DOC REF" strip
+   ============================================================ */
+.topbar {
+  background: var(--bg-deep);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar-left  { display: flex; align-items: center; gap: 16px; }
+.topbar-right { font-size: 10px; color: var(--text-ghost); letter-spacing: 1px; }
+
+/* The CLASSIFIED / TOP SECRET stamp */
+.stamp {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 3px 10px;
+}
+
+.doc-ref { font-size: 10px; color: var(--text-ghost); letter-spacing: 1px; }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.site-nav {
+  padding: 18px 40px;
+  border-bottom: 1px solid var(--border-dim);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Your handle / site name — edit the text in default.html */
+.site-handle {
+  font-size: 16px;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+}
+
+.site-handle span { color: var(--accent); }
+
+.nav-links { display: flex; gap: 28px; }
+
+.nav-links a {
+  font-size: 11px;
+  color: var(--text-ghost);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.nav-links a:hover,
+.nav-links a.active { color: var(--text-mid); }
+
+/* ============================================================
+   MAIN CONTENT WRAPPER
+   ============================================================ */
+.site-body { padding: 36px 40px; max-width: 900px; margin: 0 auto; }
+
+/* Warning banner — shown at top of pages */
+.warning-banner {
+  font-size: 10px;
+  color: var(--accent-dim);
+  border: 1px solid var(--accent-dim);
+  padding: 8px 14px;
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+.rx-section { margin-bottom: 40px; }
+
+/* Section label with line — e.g. "subject profile" */
+.section-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ============================================================
+   PROFILE GRID — used on About page
+   ============================================================ */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.profile-field { margin-bottom: 12px; }
+
+.field-key {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--text-ghost);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.field-val { font-size: 13px; color: var(--text-mid); }
+.field-val em { color: var(--text); font-style: normal; }
+
+/* ============================================================
+   REDACTED BLOCKS
+   Add class="redact" to any span to black it out
+   ============================================================ */
+.redact {
+  display: inline-block;
+  background: var(--surface);
+  color: transparent;
+  user-select: none;
+  border-radius: 2px;
+  min-width: 60px;
+}
+
+.redact.sm { min-width: 40px; }
+.redact.lg { min-width: 120px; }
+
+/* ============================================================
+   BODY TEXT — for About / long-form pages
+   ============================================================ */
+.body-text {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.9;
+  max-width: 600px;
+}
+
+.body-text em { color: var(--text); font-style: normal; }
+
+/* ============================================================
+   POST LIST — for Writeups / Interesting pages
+   ============================================================ */
+.post-list { display: flex; flex-direction: column; }
+
+.post-row {
+  display: grid;
+  grid-template-columns: 90px 1fr 80px 70px;
+  gap: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-dim);
+  align-items: baseline;
+  transition: background 0.1s;
+}
+
+.post-row:last-child { border-bottom: none; }
+.post-row:hover .post-title { color: var(--text); }
+
+.post-date  { font-size: 11px; color: var(--text-ghost); }
+.post-title { font-size: 12px; color: var(--text-mid); cursor: pointer; transition: color 0.15s; }
+
+.post-tag { font-size: 10px; color: var(--text-ghost); letter-spacing: 1px; }
+.post-tag.ctf  { color: var(--green); }
+.post-tag.misc { color: var(--amber); }
+
+.post-status { font-size: 10px; color: var(--text-ghost); text-align: right; }
+.post-status.open { color: var(--green); }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-list { display: flex; flex-direction: column; gap: 10px; }
+
+.contact-row { display: flex; gap: 20px; align-items: baseline; }
+
+.contact-key {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--text-ghost);
+  text-transform: uppercase;
+  width: 72px;
+  flex-shrink: 0;
+}
+
+.contact-val { font-size: 12px; color: var(--text-mid); }
+.contact-val a { color: var(--text-mid); }
+.contact-val a:hover { color: var(--text); }
+
+/* ============================================================
+   SINGLE POST PAGE — for individual writeups
+   ============================================================ */
+.post-header { margin-bottom: 36px; }
+
+.post-meta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.post-meta-date { font-size: 11px; color: var(--text-ghost); }
+.post-meta-tag  { font-size: 10px; color: var(--green); letter-spacing: 1px; }
+
+.post-heading {
+  font-size: 18px;
+  color: var(--text);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+}
+
+/* Markdown content styles */
+.post-content { max-width: 640px; }
+.post-content p  { color: var(--text-mid); margin-bottom: 16px; line-height: 1.9; }
+.post-content h2 { font-size: 13px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin: 32px 0 12px; }
+.post-content h3 { font-size: 13px; color: var(--text); margin: 24px 0 8px; }
+.post-content a  { color: var(--text-mid); border-bottom: 1px solid var(--border); }
+.post-content a:hover { color: var(--text); border-color: var(--text-mid); }
+.post-content ul, .post-content ol { color: var(--text-mid); padding-left: 24px; margin-bottom: 16px; }
+.post-content li { margin-bottom: 6px; }
+.post-content blockquote {
+  border-left: 2px solid var(--accent);
+  padding-left: 16px;
+  color: var(--text-ghost);
+  margin: 20px 0;
+}
+
+/* Code blocks */
+.post-content code {
+  font-family: var(--font);
+  font-size: 12px;
+  background: var(--surface);
+  color: var(--text);
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.post-content pre {
+  background: var(--bg-deep);
+  border: 1px solid var(--border);
+  padding: 20px;
+  overflow-x: auto;
+  margin-bottom: 20px;
+  border-radius: 2px;
+}
+
+.post-content pre code {
+  background: none;
+  padding: 0;
+  font-size: 12px;
+  color: var(--text-mid);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  margin-top: 48px;
+  padding: 14px 40px;
+  border-top: 1px solid var(--border-dim);
+  background: var(--bg-deep);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left  { font-size: 10px; color: var(--text-ghost); letter-spacing: 1px; }
+.footer-right { font-size: 10px; color: var(--text-ghost); }
+
+/* Blinking cursor in footer */
+.blink {
+  display: inline-block;
+  width: 6px; height: 11px;
+  background: var(--text-dim);
+  animation: blink 1.4s step-end infinite;
+  vertical-align: middle;
+}
+
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* ============================================================
+   RESPONSIVE — basic mobile support
+   ============================================================ */
+@media (max-width: 640px) {
+  .topbar, .site-nav, .site-body, .site-footer { padding-left: 20px; padding-right: 20px; }
+  .topbar-right, .doc-ref { display: none; }
+  .profile-grid { grid-template-columns: 1fr; }
+  .post-row { grid-template-columns: 80px 1fr; }
+  .post-tag, .post-status { display: none; }
+  .nav-links { gap: 16px; }
+}

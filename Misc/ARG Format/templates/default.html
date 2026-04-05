@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       REDACTED — Jekyll Layout
+       ============================================================
+       THINGS TO CHANGE ON THIS PAGE:
+       1. <title>         — your handle/site name
+       2. .stamp          — change "TOP SECRET" to whatever you want
+       3. .doc-ref        — your own document reference flavour text
+       4. .site-handle    — your handle (shown in nav)
+       5. .nav-links      — add/remove pages as needed
+       6. .warning-banner — the text shown at the top of every page
+       7. .footer-left    — the hidden ARG comment in the footer
+       ============================================================ -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Change this to your site name -->
+  <title>
+    {% if page.title %}{{ page.title }} — your-handle{% else %}your-handle{% endif %}
+  </title>
+
+  <!-- ============================================================
+       ARG LAYER 0 — visible only in source code
+       Change these messages to your own clues
+       ============================================================ -->
+  <!--
+    [SYSTEM]: SECURE CONNECTION ESTABLISHED
+    [ANALYST]: You weren't supposed to find this.
+    [LAYER_1]: 4c6f6f6b20636c6f73657220617420746865207265646163746564
+    [HINT]: Not everything that is hidden is meant to stay that way.
+  -->
+
+  <meta name="description" content="CTF writeups, security research, and things that made me think." />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+</head>
+
+<body>
+
+  <!-- ── TOP BAR ── -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <!-- Change "TOP SECRET" to CLASSIFIED, CONFIDENTIAL, etc. -->
+      <div class="stamp">TOP SECRET</div>
+      <!-- Change this reference flavour text to whatever you like -->
+      <div class="doc-ref">DOC REF: GS-████-██ &nbsp;|&nbsp; COPY 1 OF 1</div>
+    </div>
+    <div class="topbar-right">HANDLE WITH CARE &nbsp;|&nbsp; DO NOT DISTRIBUTE</div>
+  </div>
+
+  <!-- ── NAV ── -->
+  <nav class="site-nav">
+    <!-- Change "your" and "_handle" to your actual handle -->
+    <!-- The <span> makes the underscore show in the accent colour -->
+    <a href="{{ '/' | relative_url }}" class="site-handle">
+      your<span>_</span>handle
+    </a>
+
+    <!-- Add, remove, or rename links here -->
+    <!-- The "active" class highlights the current page -->
+    <div class="nav-links">
+      <a href="{{ '/' | relative_url }}"
+         {% if page.url == '/' %}class="active"{% endif %}>home</a>
+
+      <a href="{{ '/about' | relative_url }}"
+         {% if page.url contains 'about' %}class="active"{% endif %}>about</a>
+
+      <a href="{{ '/writeups' | relative_url }}"
+         {% if page.url contains 'writeups' %}class="active"{% endif %}>writeups</a>
+
+      <a href="{{ '/interesting' | relative_url }}"
+         {% if page.url contains 'interesting' %}class="active"{% endif %}>interesting</a>
+
+      <a href="{{ '/contact' | relative_url }}"
+         {% if page.url contains 'contact' %}class="active"{% endif %}>contact</a>
+    </div>
+  </nav>
+
+  <!-- ── MAIN CONTENT ── -->
+  <main class="site-body">
+
+    <!-- Warning banner shown on every page — change the text or delete this div to remove it -->
+    <div class="warning-banner">
+      ⚠ &nbsp; UNAUTHORISED ACCESS TO THIS DOCUMENT IS STRICTLY PROHIBITED.
+      IF YOU HAVE REACHED THIS PAGE IN ERROR, CLOSE YOUR BROWSER IMMEDIATELY.
+    </div>
+
+    <!-- Jekyll drops your page/post content here — don't touch this -->
+    {{ content }}
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <!-- Change this ARG hint to your own message -->
+    <span class="footer-left">/* you weren't supposed to find this. keep looking. */</span>
+    <span class="footer-right"><span class="blink"></span></span>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+# Start webpage: bundle exec jekyll serve
+
+title: ghx312
+email: wongpinrui2009@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  This is a website, it belongs to me and you.
+baseurl: ""
+url: "https://ghx312.github.io"
+twitter_username: Don't use
+github_username:  ghx312
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+
+include:
+  - _pages
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: terminal
+  - scope:
+      path: "_pages"
+    values:
+      layout: terminal
+  - scope:
+      path: "_posts"
+    values:
+      layout: terminal
+  - scope:
+      path: ""
+      type: notes
+    values:
+      layout: terminal
+  - scope:
+      path: ""
+      type: writeups
+    values:
+      layout: terminal

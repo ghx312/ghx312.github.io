@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap');
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{background:#121218;}
+    .t-wrap{background:#121218;color:#a8a8b8;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;min-height:100vh;padding:40px 48px;}
+    .t-topbar{display:flex;align-items:center;gap:6px;margin-bottom:36px;padding-bottom:16px;border-bottom:1px solid #1c1c26;}
+    .t-dot{width:10px;height:10px;border-radius:50%;}
+    /* .t-dot.r{background:#3a1a1a;}
+    .t-dot.y{background:#2e2a14;}
+    .t-dot.g{background:#1a2e1a;} MacOS Dots*/
+    .t-title{margin-left:auto;font-size:11px;color:#333340;letter-spacing:1px;}
+
+    /*Main Grid*/
+    .t-main{display:grid;grid-template-columns:220px 1fr;gap:40px;align-items:start;}
+
+    /*Left Profile Box*/
+    .t-profile{background:#0f0f18;border:1px solid #1c1c26;border-radius:10px;padding:24px 20px;display:flex;flex-direction:column;gap:16px;height:fit-content;width:fit-content;}
+    .t-avatar{width:100%;aspect-ratio:1;border-radius:8px;background:#1a1a26;overflow:hidden;display:flex;align-items:center;justify-content:center;border:1px solid #1c1c26;}
+    .t-avatar img{width:100%;height:100%;object-fit:cover;}
+    .t-avatar-placeholder{font-size:32px;color:#333346;}
+    .t-handle{font-size:15px;color:#a8a8b8;letter-spacing:1px;}
+    .t-handle span{color:#7eb8d4;}
+    .t-desc{font-size:11px;color:#7a7a90;line-height:1.8;}
+    .t-divider{height:1px;background:#1c1c26;}
+    .t-wip-label{font-size:10px;letter-spacing:2px;color:#333346;text-transform:uppercase;margin-bottom:8px;}
+    .t-wip-list{display:flex;flex-direction:column;gap:4px;}
+    .t-wip-item{font-size:11px;color:#7a7a90;display:flex;gap:8px;}
+    .t-wip-item::before{content:'▸';color:#7eb8d4;flex-shrink:0;}
+    .t-social{display:flex;flex-direction:column;gap:6px;width:fit-content;}
+    .t-slink{font-size:11px;color:#5a5a72;text-decoration:none;display:flex;gap:10px;transition:color 0.15s;word-break: break-all;}
+    .t-slink:hover{color:#7eb8d4;}
+    .t-skey{color:#333346;width:72px;flex-shrink:0;} /*Change width to change the contacts left header sizes*/
+
+    /*Right Side*/
+    .t-right{display:flex;flex-direction:column;gap:32px;}
+    .t-prompt{display:flex;align-items:baseline;gap:0;margin-bottom:20px;}
+    .t-user{color:#5a8a5a;}
+    .t-path{color:#5a7aaa;}
+    .t-nav{display:flex;gap:0;margin-bottom:0;}
+    .t-nav a{color:#5a5a72;text-decoration:none;font-size:12px;letter-spacing:1px;margin-right:24px;transition:color 0.15s;}
+    .t-nav a:hover,.t-nav a.active{color:#7eb8d4;}
+
+    .t-section-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#444458;margin-bottom:12px;display:flex;align-items:center;gap:12px;}
+    .t-section-label::after{content:'';flex:1;height:1px;background:#1c1c26;}
+
+    .t-posts{display:flex;flex-direction:column;}
+    .t-post {display: grid;grid-template-columns: 90px 1fr auto;gap: 16px;padding: 8px 0;border-bottom: 1px solid #111120;align-items: baseline;}
+    .t-post:last-child{border-bottom:none;}
+    .t-post:hover .t-ptitle{color:#7eb8d4;}
+    .t-pdate{font-size:11px;color:#444458;}
+    .t-ptitle{font-size:12px;color:#7a7a90;cursor:pointer;transition:color 0.15s;text-decoration:none;}
+    .t-ptag{font-size:10px;text-align:right;color:#444458;}
+    .t-ptag.ctf{color:#5a8a5a;}
+    .t-ptag.misc{color:#7a6a4a;}
+    .t-ptag.notes{color:#5a7aaa;}
+
+    /*Bottom Box*/
+    .t-ascii-box{background:#0f0f18;border:1px solid #1c1c26;border-radius:8px;padding:20px 24px;width: fit-content;}
+    .t-ascii-label{font-size:10px;letter-spacing:2px;color:#333346;text-transform:uppercase;margin-bottom:12px;}
+    .t-ascii{font-size:11px;color:#3a6a3a;line-height:1.4;white-space:pre;overflow-x:auto;width: fit-content;}
+    .t-ascii-caption{font-size:10px;color:#444458;margin-top:10px;font-style:italic;}
+
+    .t-footer{margin-top:48px;padding-top:14px;border-top:1px solid #161622;display:flex;justify-content:space-between;align-items:center;}
+    .t-footer-left{font-size:11px;color:#252530;}
+    .t-blink{display:inline-block;width:7px;height:13px;background:#7eb8d4;opacity:0.7;animation:blink 1.2s step-end infinite;vertical-align:middle;}
+    @keyframes blink{0%,100%{opacity:0.7}50%{opacity:0}}
+  </style>
+</head>
+<body>
+<div class="t-wrap">
+
+  <div class="t-topbar">
+    <div class="t-dot r"></div>
+    <div class="t-dot y"></div>
+    <div class="t-dot g"></div>
+    <span class="t-title">ghx312 — bash</span>
+  </div>
+
+  <div class="t-main">
+
+    <!-- LEFT PROFILE BOX -->
+    <div class="t-profile">
+      <div class="t-avatar">
+        <div class="t-avatar-placeholder"></div>
+            <img src="/assets/img/profile_picture.jpg" alt="ghx312">
+      </div>
+
+      <div>
+        <div class="t-handle">ghx<span>312</span></div>
+        <div class="t-desc">Cybersecurity and Cryptography Enthusiast, CTF Player</div>
+      </div>
+
+      <div class="t-divider"></div>
+
+      <div>
+        <div class="t-wip-label">CURRENTLY WORKING ON</div>
+        <div class="t-wip-list">
+          <div class="t-wip-item">Lattice-Based Cryptography</div>
+          <div class="t-wip-item">Binary Exploitation (BOF)</div>
+          <div class="t-wip-item">Order Theory</div>
+        </div>
+      </div>
+
+      <div class="t-divider"></div>
+
+      <div class="t-social"> <!--Socials Left Box-->
+        <a href="https://github.com/ghx312" class="t-slink"><span class="t-skey">Github</span>@ghx312</a>
+        <a href="mailto:wongpinrui2009@gmail.com" class="t-slink"><span class="t-skey">Email</span>wongpinrui2009@gmail.com</a>
+        <a href="https://instagram.com/ghx3_12" class="t-slink"><span class="t-skey">Instagram</span>@ghx3_12</a>
+        <a href="https://www.linkedin.com/in/wong-pin-rui-17a209368/" class="t-slink"><span class="t-skey">LinkedIn</span>Rui</a>
+        <a href="https://www.discord.com/users/724829892243488870/" class="t-slink"><span class="t-skey">Discord</span>ghx312</a>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="t-right">
+
+      <div>
+        <div class="t-prompt">
+          <span class="t-user">ghx312</span>
+          <span style="color:#333340;">@</span>
+          <span class="t-path">~/site</span>
+          <span style="color:#a8a8b8;">&nbsp;$&nbsp;cat home</span>
+        </div>
+        <div class="t-nav">
+          <a href="/" class="active">Home</a>
+          <a href="/notes/">Notes</a>
+          <a href="/writeups/">Writeups</a>
+          <a href="/about/">About</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="t-section-label">recent posts</div>
+        <div class="t-posts">
+          {% assign all_posts = site.pages | where_exp: "item", "item.date != nil" | sort: "date" | reverse %}
+          {% for item in all_posts limit:5 %}
+          <div class="t-post">
+            <span class="t-pdate">{{ item.date | date: "%Y.%m.%d" }}</span>
+            <a href="{{ item.url }}" class="t-ptitle">{{ item.title }}</a>
+            <span class="t-ptag {{ item.category }}">[{{ item.category }}]</span>
+          </div>
+          {% endfor %}
+      </div>
+
+      <!-- ASCII ART BOX -->
+      <div class="t-ascii-box">
+        <div class="t-ascii-label"></div>
+        <div class="t-ascii">/* "When there is the chance to make a choice, make one that you know you won't regret..." */</div>
+        <div class="t-ascii-caption">coming soon...</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="t-footer">
+    <span class="t-footer-left">/* "When there is the chance to make a choice, make one that you know you won't regret..." */</span>
+    <span><div class="t-blink"></div></span>
+  </div>
+
+</div>
+</body>
+</html>

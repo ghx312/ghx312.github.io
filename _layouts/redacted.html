@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap');
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{background:#0c0c10;}
+    .rx{background:#0c0c10;color:#b0b0c0;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;min-height:100vh;}
+    .rx-topbar{background:#080810;border-bottom:1px solid #1a1a28;padding:10px 32px;display:flex;align-items:center;justify-content:space-between;}
+    .rx-stamp{font-size:10px;letter-spacing:3px;color:#6b0000;border:1px solid #6b0000;padding:3px 10px;}
+    .rx-docref{font-size:10px;color:#252535;letter-spacing:1px;}
+    .rx-topright{font-size:10px;color:#252535;letter-spacing:1px;}
+    .rx-nav{padding:18px 32px;border-bottom:1px solid #141420;display:flex;align-items:center;justify-content:space-between;}
+    .rx-handle{font-size:16px;color:#4a4a62;letter-spacing:2px;}
+    .rx-handle span{color:#8b0000;}
+    .rx-links{display:flex;gap:28px;}
+    .rx-links a{font-size:11px;color:#2e2e42;text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:color 0.15s;}
+    .rx-links a:hover{color:#b0b0c0;}
+    .rx-links a.active{color:#6a6a88;}
+    .rx-body{padding:36px 32px;max-width:800px;}
+    .rx-body h1,.rx-body h2,.rx-body h3{color:#b0b0c0;margin-bottom:12px;margin-top:24px;}
+    .rx-body p{color:#585870;margin-bottom:12px;line-height:1.9;}
+    .rx-body a{color:#6a6a88;}
+    .rx-body a:hover{color:#b0b0c0;}
+    .rx-body code{background:#1a1a28;padding:2px 6px;border-radius:3px;color:#9090a8;}
+    .rx-body pre{background:#1a1a28;padding:16px;border-radius:4px;overflow-x:auto;margin-bottom:12px;}
+    .rx-body ul,ol{color:#585870;padding-left:20px;margin-bottom:12px;}
+    .rx-footer{margin-top:48px;padding:16px 32px;border-top:1px solid #111120;background:#080810;display:flex;justify-content:space-between;align-items:center;}
+    .rx-ftleft{font-size:10px;color:#1a1a28;letter-spacing:1px;}
+    .rx-blink{display:inline-block;width:6px;height:11px;background:#2e2e42;animation:bl 1.4s step-end infinite;vertical-align:middle;}
+    @keyframes bl{0%,100%{opacity:1}50%{opacity:0}}
+  </style>
+</head>
+<body>
+<div class="rx">
+
+  <div class="rx-topbar">
+    <div style="display:flex;align-items:center;gap:16px;">
+      <div class="rx-stamp">TOP SECRET</div>
+      <div class="rx-docref">DOC REF: GS-████-██ &nbsp;|&nbsp; COPY 1 OF 1</div>
+    </div>
+    <div class="rx-topright">HANDLE WITH CARE &nbsp;|&nbsp; DO NOT DISTRIBUTE</div>
+  </div>
+
+  <div class="rx-nav">
+    <div class="rx-handle">ghx<span>_</span>312</div>
+    <div class="rx-links">
+      <a href="/">home</a>
+      <a href="/about">about</a>
+      <a href="/writeups">writeups</a>
+      <a href="/contact">contact</a>
+    </div>
+  </div>
+
+  <div class="rx-body">
+    {{ content }}
+  </div>
+
+  <div class="rx-footer">
+    <span class="rx-ftleft">/* you weren't supposed to find this. keep looking. */</span>
+    <span><div class="rx-blink"></div></span>
+  </div>
+
+</div>
+</body>
+</html>
