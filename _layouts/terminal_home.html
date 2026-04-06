@@ -39,7 +39,7 @@
 
     /*Right Side*/
     .t-right{display:flex;flex-direction:column;gap:32px;}
-    .t-prompt{display:flex;align-items:baseline;gap:0;margin-bottom:20px;}
+    .t-prompt{display:flex;align-items:baseline;gap:0;margin-bottom:20px;margin-left:4px;}
     .t-user{color:#5a8a5a;}
     .t-path{color:#5a7aaa;}
     .t-nav{display:flex;gap:0;margin-bottom:0;}
@@ -68,7 +68,7 @@
 
     .t-footer{margin-top:48px;padding-top:14px;border-top:1px solid #161622;display:flex;justify-content:space-between;align-items:center;}
     .t-footer-left{font-size:11px;color:#252530;}
-    .t-blink{display:inline-block;width:7px;height:13px;background:#7eb8d4;opacity:0.7;animation:blink 1.2s step-end infinite;vertical-align:middle;}
+    .t-blink{display:inline-block;width:7px;height:13px;background:#7eb8d4;opacity:0.7;animation:blink 1.2s step-end infinite;vertical-align:middle;margin-left:4px;}
     @keyframes blink{0%,100%{opacity:0.7}50%{opacity:0}}
   </style>
   <link rel="icon" type="image/x-icon" href="/assets/img/PFP.ico">
@@ -128,7 +128,9 @@
           <span style="color:#333340;">@</span>
           <span class="t-path">~/site</span>
           <span style="color:#a8a8b8;">&nbsp;$&nbsp;cat home</span>
+          <span class="t-blink"></span>  <!--Blinker prompt thing-->
         </div>
+
         <div class="t-nav">
           <a href="/" class="active">Home</a>
           <a href="/notes/">Notes</a>
@@ -162,7 +164,6 @@
 
   <div class="t-footer">
     <span class="t-footer-left">/* "When there is the chance to make a choice, make one that you know you won't regret..." */</span>
-    <span><div class="t-blink"></div></span>
   </div>
 
 </div>

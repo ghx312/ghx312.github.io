@@ -20,7 +20,7 @@
     .t-nav{display:flex;gap:0;margin-bottom:36px;}
     .t-nav a{color:#444458;text-decoration:none;font-size:12px;letter-spacing:1px;margin-right:24px;}
     .t-nav a:hover{color:#7eb8d4;}
-    .t-prompt{display:flex;align-items:baseline;gap:0;margin-bottom:28px;}
+    .t-prompt{display:flex;align-items:baseline;gap:0;margin-bottom:28px;margin-left:4px;}
     .t-user{color:#5a8a5a;}
     .t-path{color:#5a7aaa;}
     .t-body{max-width:760px;}
@@ -33,7 +33,7 @@
     .t-body ul,ol{color:#8888a0;padding-left:20px;margin-bottom:12px;}
     .t-footer{margin-top:48px;padding-top:14px;border-top:1px solid #161622;display:flex;justify-content:space-between;align-items:center;}
     .t-footer-left{font-size:11px;color:#383848;}
-    .t-blink{display:inline-block;width:7px;height:13px;background:#7eb8d4;opacity:0.7;animation:blink 1.2s step-end infinite;vertical-align:middle;}
+    .t-blink{display:inline-block;width:7px;height:13px;background:#7eb8d4;opacity:0.7;animation:blink 1.2s step-end infinite;vertical-align:middle;margin-left:4px;}
     @keyframes blink{0%,100%{opacity:0.7}50%{opacity:0}}
   </style>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -68,6 +68,7 @@
         {% unless forloop.last %}<span style="color:#a8a8b8;">/</span>{% endunless %}
       {% endif %}
     {% endfor %}
+    <span class="t-blink"></span> <!--Blinking Prompt thing next the bash-->
   </div>
 
   <div class="t-nav">
