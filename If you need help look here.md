@@ -7,3 +7,8 @@ git push
 
 When you want to run your website locally:
 bundle exec jekyll serve
+
+Markdown Syntax:
+If you want to input code use:
+{% raw %} + {% endraw %}
+Put the code inside these: `` to remove markdown formatting like Italics and Bold
