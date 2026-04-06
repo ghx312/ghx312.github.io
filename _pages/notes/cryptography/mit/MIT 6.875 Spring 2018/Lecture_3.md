@@ -121,54 +121,55 @@ $$a = g^x = g^{x_1 \cdot m + x_2}$$, $$m \approx \sqrt{p}$$
 $$a \cdot g^{-x_2} = (g^{m})^{x_1}$$  
 
 Algorithm to find $\sqrt{p}$ in polynomial time/Solve DLP:  
-Compute all values of $g^{-x_2}$ for $x_2 \in \{0,1,2,3,4,5,\dots,m-1\}$
-Make a table for all values of $x_2$
-$\{a \cdot g^{-x_2}\} = \{\forall x_2\}$ (Length is p)
-$\{(g^m)^{x_1}\} = \{\forall x_1\}$ (Length is p)
-Sort the tables and go through each of them until
-$a \cdot g^{-x_2} = (g^m)^{x_1}$
-$x = x_1 + x_2$
-Time taken: $\sqrt{p}$  
-Also known as the Meet-in-the-Middle Approach or [Baby-Step Giant-Step](https://colab.research.google.com/drive/1bGRV8OVXUC0II34-JJmrioFjNp7eEorl?usp=sharing)
+Compute all values of $$g^{-x_2}$$ for $$x_2 \in \{0,1,2,3,4,5,\dots,m-1\}$$  
+Make a table for all values of $$x_2$$  
+$$\{a \cdot g^{-x_2}\} = \{\forall x_2\}$$ (Length is p)  
+$$\{(g^m)^{x_1}\} = \{\forall x_1\}$$ (Length is p)  
+Sort the tables and go through each of them until  
+$$a \cdot g^{-x_2} = (g^m)^{x_1}$$  
+$$x = x_1 + x_2$$  
+Time taken: $$\sqrt{p}$$  
+Also known as the Meet-in-the-Middle Approach or [Baby-Step Giant-Step](https://colab.research.google.com/drive/1bGRV8OVXUC0II34-JJmrioFjNp7eEorl?usp=sharing)  
 
-**Index Calculus Method**:
-Time take: $2^{O(\sqrt{(log(N)log(log(N))})}$ (Sub-Exponential Time)
-Guided Example:
-`5^x = 8 (mod 37)`
+#### **Index Calculus Method**  
+Time take: $$2^{O(\sqrt{(log(N)log(log(N))})}$$ (Sub-Exponential Time)  
+Guided Example:  
+{% raw %} `5^x = 8 (mod 37)` {% endraw %}  
 
-Step 1: Choose Factor Base
-Choose a set of small primes 
-`B = {2, 3, 5}`
+##### Step 1: Choose Factor Base  
+Choose a set of small primes  
+{% raw %} `B = {2, 3, 5}` {% endraw %}  
 
-Step 2: Correct relations
-Randomly pick $k$ for $g^k \pmod{p}$ such that every prime factors of the result is in B or the result is B-Smooth. There can be more than 1 results, however, all of their prime factors must remain within B.
+##### Step 2: Correct relations  
+Randomly pick $$k$$ for $$g^k \pmod{p}$$ such that every prime factors of the result is in B or the result is B-Smooth. There can be more than 1 results, however, all of their prime factors must remain within B.  
 
-$g^k = p^{e_1}_{1}p^{e_2}_{2}\dots \pmod{p}$ 
+$$g^k = p^{e_1}_{1}p^{e_2}_{2}\dots \pmod{p}$$  
 
-By taking $log_g()$ on both sides, we also switch the modulo to p - 1 to take into account for Fermat's Little Theorem as $g^{p - 1} \equiv 1 \pmod{p}$ 
+By taking $$log_g()$$ on both sides, we also switch the modulo to p - 1 to take into account for Fermat's Little Theorem as $$g^{p - 1} \equiv 1 \pmod{p}$$  
 
-$k = e_1log_g(p_1) + e_2log_g(p_2) \dots \pmod{p - 1}$
+$$k = e_1log_g(p_1) + e_2log_g(p_2) \dots \pmod{p - 1}$$  
 
-5^1 = 5 mod 37 => 1 = log$_5$(5) mod 36
-5^3 = 20 mod 37 => 3 = 2log$_5$(2) + log$_5$(5) mod 36
-5^11 = 2 mod 37 => 11 = log$_5$(2) mod 36
-5^22 = 3 mod 37 => 22 = log$_5$(3) mod 36
+5^1 = 5 mod 37 => 1 = log$$_5$$(5) mod 36  
+5^3 = 20 mod 37 => 3 = 2log$$_5$$(2) + log$$_5$$(5) mod 36  
+5^11 = 2 mod 37 => 11 = log$$_5$$(2) mod 36  
+5^22 = 3 mod 37 => 22 = log$$_5$$(3) mod 36  
 
-Step 3: Solving Linear Systems
-After we obtain the system of equations, we can solve the linear equations
+##### Step 3: Solving Linear Systems  
+After we obtain the system of equations, we can solve the linear equations  
 
-$\begin{bmatrix} 2 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix} \begin{bmatrix} log_{5}2 \\ log_{5}3 \\ log_{5}5\end{bmatrix} = \begin{bmatrix} 3 \\ 11 \\ 12 \\ 1\end{bmatrix} \pmod{36}$
+$$\begin{bmatrix} 2 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix} \begin{bmatrix} log_{5}2 \\ log_{5}3 \\ log_{5}5\end{bmatrix} = \begin{bmatrix} 3 \\ 11 \\ 12 \\ 1\end{bmatrix} \pmod{36}$$  
 
-Factor Base Logs:
-$log_{5}2 \equiv 11 \pmod{36}$
-$log_{5}3 \equiv 22 \pmod{36}$
-$log_{5}5 \equiv 1 \pmod{36}$
+##### Factor Base Logs  
+$$log_{5}2 \equiv 11 \pmod{36}$$  
+$$log_{5}3 \equiv 22 \pmod{36}$$  
+$$log_{5}5 \equiv 1 \pmod{36}$$  
 
-Step 4: Target Decompositions
-Try random $m$ until $5^m \cdot 8 \pmod{37}$ is B-Smooth
+##### Step 4: Target Decompositions  
+Try random $$m$$ until $$5^m \cdot 8 \pmod{37}$$ is B-Smooth  
 
-Let $m = 0$
-$5^0 \cdot 8 = 2^3 \pmod{37}$ 
-$0 + x = 3log_{5}2 \pmod{36}$
-$x \equiv 3 \times 11 \pmod{36}$
+Let $$m = 0$$
+$$5^0 \cdot 8 = 2^3 \pmod{37}$$  
+$$0 + x = 3log_{5}2 \pmod{36}$$  
+$$x \equiv 3 \times 11 \pmod{36}$$  
+
 ***
