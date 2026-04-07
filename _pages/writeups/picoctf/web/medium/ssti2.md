@@ -33,7 +33,7 @@ I tried a few other payloads like {% raw %} `{{7 * 7}}` {% endraw %} which did n
 
 {% raw %} `{{ config.items }}` {% endraw %}  -> Confirmed that the fullstop was blacklisted  
 So I went online and found a way to use the fullstop without having to type it out by using |attr() as an alternative.  
-![Here lies a picture](/assets/img/picoCTF/ssti2/ssti2_bypass_cheatsheet.png)  w
+![Here lies a picture](/assets/img/picoCTF/ssti2/ssti2_bypass_cheatsheet.png)  
 
 {% raw %} `{{ cycler|attr('__init__') }}` {% endraw %}  -> Confirmed that the underscore was blacklisted  
 We can escape the underscore by using its hex value \5xf, this will bypass the filter but still be recognised as an underscore when the code is running.  
