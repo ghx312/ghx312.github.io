@@ -12,3 +12,6 @@ Markdown Syntax:
 If you want to input code use:
 {% raw %} + {% endraw %}
 Put the code inside these: `` to remove markdown formatting like Italics and Bold
+
+LaTeX:
+Put your math in double dollar signs
