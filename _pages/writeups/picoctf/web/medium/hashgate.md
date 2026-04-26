@@ -30,7 +30,7 @@ The remaining gibberish reminded me of the first hint where a one-way function i
 Inserting e93028bdc1aacdfb3687181f2031765d into a [rainbow table](https://crackstation.net) which returned that that was the hash of 3000 using MD5.  
 This accurately reflected the ID of the current account.  
 
-The second hint is rather guessy, however, that meant that one of the 20 IDs from 3001 to 3020 was the admin account which contained the flag.  
-I bruteforced it by using cyberchef to hash the different ID numebers to try and on ID 3013, it worked and outputted the flag.  
+The second hint is rather guessy. The seconds meant that one of the 20 IDs from 3001 to 3020 was the admin account which contained the flag.  
+I bruteforced it by using cyberchef to hash the different ID numbers to try and on ID 3013, it worked and outputted the flag.  
 
 I didn't really like this challenge due to the ID guessing part and alot of people think so given its 40% liked rate. :P  
