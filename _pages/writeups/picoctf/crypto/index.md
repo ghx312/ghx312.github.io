@@ -9,4 +9,4 @@ Choose Difficulty:
 
 [Easy](/writeups/picoctf/crypto/easy)  
 [Medium](/writeups/picoctf/crypto/medium)  
-[Hard](/writeups/picoctf//hard)  
+[Hard](/writeups/picoctf/crypto/hard)  
