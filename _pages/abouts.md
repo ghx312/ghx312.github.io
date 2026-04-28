@@ -20,6 +20,6 @@ I'm also working towards achieving higher placements at National Olympiads (Info
 
 ### Contacts
 Email (Personal): wongpinrui2009@gmail.com  
-Email (Academic): wong_pin_rui@students.edu.sg
+Email (Academic): wong_pin_rui@students.edu.sg 
 
 [Download my CV here](https://drive.google.com/file/d/1H037qZ07JNjrsQOXQ8dpdcrY_dDnaprh/view)
