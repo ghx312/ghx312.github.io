@@ -18,6 +18,3 @@ Hint 1: What is e generally?
 Once we start the instance and connect to the netcat given. We are provided with N, e and c.  
 The e is unsually large, to decrypt we need to find d. A big e usually means that the d is small.  
 Hence, we can use Weiner's Attack in order to recover the d as it is small.  
-
-### Solve Script
-This is the [solve script]() that I used to get the flag
