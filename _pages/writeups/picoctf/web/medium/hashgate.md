@@ -1,7 +1,7 @@
 ---
 layout: terminal_centered
 title: Hashgate
-permalink: /writeups/picoctf/web/medium/hashgate
+permalink: /writeups/picoctf/web/medium/hashgate/
 date: 2026-04-25
 category: writeups
 ---

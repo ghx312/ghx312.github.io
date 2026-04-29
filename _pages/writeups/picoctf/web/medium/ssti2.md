@@ -1,7 +1,7 @@
 ---
 layout: terminal_centered
 title: SSTI2
-permalink: /writeups/picoctf/web/medium/ssti2
+permalink: /writeups/picoctf/web/medium/ssti2/
 date: 2026-04-06
 category: writeups
 ---

@@ -1,7 +1,7 @@
 ---
 layout: terminal_centered
 title: miniRSA
-permalink: /writeups/picoctf/crypto/hard/miniRSA
+permalink: /writeups/picoctf/crypto/hard/miniRSA/
 date: 2026-04-28
 category: writeups
 ---

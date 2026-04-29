@@ -1,7 +1,7 @@
 ---
 layout: terminal_centered
 title: No FA
-permalink: /writeups/picoctf/web/medium/no_fa
+permalink: /writeups/picoctf/web/medium/no_fa/
 date: 2026-04-25
 category: writeups
 ---
