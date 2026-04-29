@@ -18,4 +18,4 @@ Hint 1: This might be a job for Boneh-Durfee.
 The encryption protocol generates a large prime for d instead of using a traditional fermat prime for e. They then calculate e.  
 From the file, we can see that e is relatively the same size as N, this means that d is rather small. The hint tells us to use the Boneh-Durfee attack.  
 The Boneh-Durfee attack is an extension of the Wenier's Attack where the conditions for d are more relaxed, allowing it to be slightly bigger.  
-However, for this challenge it is possible to still recover d using Wenier's attack.  
+However, for this challenge it is possible to still recover d using Weiner's attack.  
