@@ -5,4 +5,5 @@ permalink: /writeups/picoctf/pwn/medium/
 ---
 
 ### Medium  
-[buffer overflow 1](/writeups/picoctf/pwn/medium/bufferoverflow1)
+[Buffer Overflow 0](/writeups/picoctf/pwn/medium/bufferoverflow0)  
+[Buffer Overflow 1](/writeups/picoctf/pwn/medium/bufferoverflow1)  
