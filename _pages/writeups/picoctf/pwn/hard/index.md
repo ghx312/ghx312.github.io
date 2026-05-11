@@ -6,3 +6,4 @@ permalink: /writeups/picoctf/pwn/hard/
 
 ### Hard  
 
+[Buffer Overflow 3](/writeups/picoctf/pwn/hard/bufferoverflow3)  
