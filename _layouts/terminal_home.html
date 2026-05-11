@@ -143,7 +143,7 @@
         <div class="t-section-label">recent posts</div>
         <div class="t-posts">
           {% assign all_posts = site.pages | where_exp: "item", "item.date != nil" | sort: "date" | reverse %}
-          {% for item in all_posts limit:5 %}
+          {% for item in all_posts limit:15 %}
           <div class="t-post">
             <span class="t-pdate">{{ item.date | date: "%Y.%m.%d" }}</span>
             <a href="{{ item.url }}" class="t-ptitle">{{ item.title }}</a>
