@@ -8,4 +8,5 @@ permalink: /notes/pwn/
 These are my binary exploitation notes
 
 [What is PWN?](/notes/pwn/whatispwn)  
+[Prerequisites](/notes/pwn/prerequisites)  
 [Buffer Overflow](/notes/pwn/bof/)  
