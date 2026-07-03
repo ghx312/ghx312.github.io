@@ -1,6 +1,6 @@
 ---
 layout: terminal_centered
-title: Introduction to RSA
+title: Introduction to AAβ-Cryptosystem
 permalink: /notes/cryptography/general/aa-cryptosystem/introduction/
 date: 2026-07-03
 category: notes
