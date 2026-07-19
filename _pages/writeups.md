@@ -7,4 +7,4 @@ permalink: /writeups/
 ## Writeups
 
 These are my writeups  
-[PicoCTF](/writeups/picoctf/)  
+[SeiberrsCTF](/writeups/sctf/)  

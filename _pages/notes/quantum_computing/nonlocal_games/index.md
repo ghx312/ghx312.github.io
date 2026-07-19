@@ -1,5 +1,5 @@
 ---
-layout: terminal_centered
+layout: terminal
 title: Hyperloglog
 permalink: /notes/qc/nonlocalgames
 ---
