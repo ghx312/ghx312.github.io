@@ -14,4 +14,6 @@ Working on:
 - CryptoHack Writeups
 - CTF Guide to Cryptography
 
+![Here lies a picture](assets/img/profile_picture.jpg)
+
 Thank you for reading!  
