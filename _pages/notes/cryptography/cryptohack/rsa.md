@@ -11,7 +11,7 @@ RSA, also known as Rivest–Shamir–Adleman, is an asymmetric cryptographic sys
 
 RSA is a great cryptosystem to start with when studying the world of cryptography.  
 
-This page covers all information covered in the CryptoHack course, however, there exist more information about RSA that is covered in my [general notes](/_pages/notes/cryptography/general/rsa/index.md)
+This page covers all information covered in the CryptoHack course, however, there exist more information about RSA that is covered in my [general notes](notes/cryptography/general/rsa)
 
 ### Greatest Common Divisor  
 The Greates Common Divisor of 2 numbers, is the largerst integer that divides both numbers. I can also be said to be the greatest shared factor between them. 
