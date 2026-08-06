@@ -104,7 +104,7 @@ Formally: $$a * b = b * a$$
 Groups that have this rule are also known as Abelian groups. All abelian groups are groups but not all groups are abelian groups (An example of a non-abelian group would be matrix multiplication)  
 
 #### Field  
-Fields are made 2 abelian groups, with the first abelian group using the + binary operator and the second using $$\times$$ binary operator. Let us denote a field of elements as $$\mathbb{F}_p = \{0, 1, 2, \dots, p - 1\}$$, where $$p$$ is prime.  
+Fields are made of 2 abelian groups, with the first abelian group using the + binary operator and the second using $$\times$$ binary operator. Let us denote a field of elements as $$\mathbb{F}_p = \{0, 1, 2, \dots, p - 1\}$$, where $$p$$ is prime.  
 
 Under the addition operator, the entire set of element is a valid abelian group  
 

@@ -7,6 +7,6 @@ permalink: /notes/pwn/
 ### PWN
 These are my binary exploitation notes
 
-[What is PWN?](/notes/pwn/whatispwn)  
-[Prerequisites](/notes/pwn/prerequisites)  
-[Buffer Overflow](/notes/pwn/bof/)  
+[Introduction to PWN](/notes/pwn/intro/)
+[Buffer Overflow](/notes/pwn/bof/)
+[Use After Free Vulnerability](/notes/pwn/uaf/)

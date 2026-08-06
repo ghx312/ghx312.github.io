@@ -1,7 +1,7 @@
 ---
 layout: terminal_centered
 title: LLL Reduction Algorithm
-permalink: /notes/lll
+permalink: /notes/cryptography/general/lll/
 date: 2026-07-20
 category: notes
 ---
