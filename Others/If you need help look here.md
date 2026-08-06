@@ -15,3 +15,6 @@ Put the code inside these: `` to remove markdown formatting like Italics and Bol
 
 LaTeX:
 Put your math in double dollar signs
+
+Centering Images:
+Append this to the end of the image:  {: style="display: block; margin: 0 auto;"}

@@ -23,7 +23,7 @@ If $$\vert\vert b_1 \vert\vert > \vert\vert b_2 \vert\vert$$ swap the vectors $$
 
 Intuitively, what this means is that we take the longer vector, and see how many smaller vectors it contains and take that away, as it is an integer combination of 2 vectors, that vector is still valid on the same lattice. We perform this algorithm until we are unable to reduce the size of both vectors.  
 
-![Here lies a picture](/assets/downloads/notes/crypto/lll/2d_reduction.png)  
+![Here lies a picture](/assets/downloads/notes/crypto/lll/2d_reduction.png){: style="display: block; margin: 0 auto;"}  
 
 ### Projection + Projection Coefficient  
 Projection is simply telling you how much a vector contains another vector. An analogy that I can make is through physics. In projectile motion, we have an object with a velocity, $$v$$. In order to make calculations easier, we often split up this velocity into $$v_x$$ and $$v_y$$ where they are the x-component and y-component of the initial velocity. A projecrtion is similar in idea, however, instead of having some predetermined vector like $$v_x$$ or $$v_y$$, we simply use another vector of our choice. After calculating the projection of a vector, $$v_1$$, on another vector, $$v_2$$, we will get a resulting vectors in the form of $$\mu v_2$$ where $$v_1 = v_1^* + \mu v_2$$ where $$\mu$$ is the projection coefficient.  
