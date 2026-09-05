@@ -13,3 +13,4 @@ These are my notes from the CryptoHack Courses
 [Elliptic Curves](/notes/cryptography/cryptohack/ecc/)  
 [Hash Functions](/notes/cryptography/cryptohack/hash_functions/)  
 [Lattice-Based Cryptography](/notes/cryptography/cryptohack/lbc/)  
+[Zero-Knowledge Proofs](/notes/cryptography/cryptohack/zkp/)  
