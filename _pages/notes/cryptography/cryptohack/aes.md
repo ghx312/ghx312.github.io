@@ -227,4 +227,52 @@ Using the known encrypted IV, we can recover the flag: $$\text{FLAG} = \text{CT}
 ***
 
 ## AES-CTR  
+![Here lies a picture](/assets/downloads/notes/crypto/aes/ctr_enc.png){: style="display: block; margin: 0 auto;"}  
+
+AES-CTR works by concatenating a simple counter to the end of the IV before encrypting it. We then take the result and use it to XOR our plaintext to encrypt it.
+
+### Vulnerabilities  
+#### Known Plaintext Attack + Nonce-Counter Reuse  
+If Nonce-Counter reuse vulnerability, this means that the encrypted IV-Counter will be the same for all blocks. If we know part of the plaintext, we will be able to obtain the encrypted IV-Counter by XORing the known plaintext block with the first block.  
+$$\text{ENC-IV-COUNTER} = \text{PT1} \oplus \text{CT1}$$  
+
+#### Known Plaintext Length  
+AES-CTR is a stream cipher which means that the length of the ciphertext is equal to the length of the plaintext. This is especially vulnerable when the encryption algorithm uses a compression algorithm to compress the size of the flag. If the encryption system allows data to be appended to the flag before compression, we can use the length of the ciphertext to deduce if our guess of the flag is right as the repeated blocks of characters tend to result in a shorter compressed length than random characters of the same length.  
+
+#### Keystream Reuse Vulnerability  
+Keystream Reuse Vulnerability allows for an attacker to use crib draggin which is basically guessing one side of the plaintext and being able to recover both plaintexts at once AND being able to recover the keystream.  
+
+$$\text{CT1} = \text{PT1} \oplus \text{K}$$  
+$$\text{CT2} = \text{PT2} \oplus \text{K}$$  
+$$\text{CT1} \oplus \text{CT2} = \text{PT1} \oplus \text{PT2}$$  
+
+We can guess one side of the plaintext and be able to recover both, using context or statistical analysis.  
+
+***  
+
+## AES-CFB8  
+AES-CFB8 is known as a Cipher Feedback Mode 8-bytes, which encrypts the IV or previous ciphertext and XORs the current plaintext.  
+
+### Vulnerabilities  
+#### CVE-2020-1472  
+CVE-2020-1472, also known as ZeroLogon, is a vulnerability in AES-CFB8 where if the IV is zeroised, the feedback loop is very predictable.  
+
+***  
+
+## DES  
+
 To be added
+
+***
+
+## ChaCha20  
+
+To be added
+
+***
+
+## ARC4  
+
+To be added
+
+***
