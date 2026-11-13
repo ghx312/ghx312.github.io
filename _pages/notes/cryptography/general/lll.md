@@ -14,7 +14,7 @@ In order to understand the LLL Reduction Algorithm, we must first understand how
 ### What does it mean to reduce a lattice?  
 A lattice is composed of all possible integer combinations of its basis vectors. Imagine that we have 2 linearly independent vectors, $$v_1$$ and $$v_2$$. The lattice would be defined as $$L = \{av_1 + bv_2:\forall a, b \in \mathbb{Z}\}$$. It can be proven that a lattice has an infinite amount of possible basis vectors that can construct it. Most of the time the basis vectors of our lattice is ugly, for example 2 basis vectors that are almost parallel. This makes it hard for them to work with, instead we can perform a lattice reduction onto these 2 almost parallel vectors, into 2 shorter and orthogonal vectors.  
 
-![Here lies a picture](/assets/downloads/notes/crypto/lll/reduction_example.png)  
+![Here lies a picture](/assets/downloads/notes/crypto/lll/reduction_example.png){: style="display: block; margin: 0 auto;"}  
 
 ### SVP solved for 2D Lattice by Gauss  
 Gauss solve SVP for 2D lattices through a clever trick that even you might have used in physics. As we are working in 2 dimensions, we will only be working with 2 basis vectors, let our basis vectors be $$B = \{b_1, b_2\}$$  
